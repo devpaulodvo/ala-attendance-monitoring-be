@@ -10,6 +10,7 @@ const addClubRoute = require('./routes/addClubRoute');
 const verifyRoleRoute = require('./routes/verifyRoleRoute');
 const getClubRoute = require('./routes/getClubRoute');
 const updateClubRoute = require('./routes/updateClubRoute');
+const updateUserVerifiedRoute = require('./routes/updateUserVerifiedRoute');
 
 require('dotenv').config();
 
@@ -42,6 +43,8 @@ app.post('/verifyrole', verifyRoleRoute)
 app.get('/get/clubs', getClubRoute)
 
 app.post('/update/club', updateClubRoute)
+
+app.post('/verify/personnel', updateUserVerifiedRoute)
 
 
 app.listen(3001, ()=>{
