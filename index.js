@@ -11,6 +11,7 @@ const verifyRoleRoute = require('./routes/verifyRoleRoute');
 const getClubRoute = require('./routes/getClubRoute');
 const updateClubRoute = require('./routes/updateClubRoute');
 const updateUserVerifiedRoute = require('./routes/updateUserVerifiedRoute');
+const addSchoolYearRoute = require('./routes/addSchoolYearRoute');
 
 require('dotenv').config();
 
@@ -18,7 +19,7 @@ const mongodbAccessString = process.env.REACT_APP_MONGODB_CON_STRING;
 
 mongoose.connect(mongodbAccessString , {
     useNewUrlParser: true,
-})
+});
 
 
 app.use(cors({  
@@ -28,24 +29,26 @@ app.use(cors({
    }))
 
 app.use(express.json());
-app.use(express.urlencoded({extended: true}))
 
-app.post('/auth', authRoute)
+app.use(express.urlencoded({extended: true}));
 
-app.post('/verify', verifyRoute)
+app.post('/auth', authRoute);
 
-app.get('/get/personnel', getPersonnelRoute)
+app.post('/verify', verifyRoute);
 
-app.post('/club/addclub', addClubRoute)
+app.get('/get/personnel', getPersonnelRoute);
 
-app.post('/verifyrole', verifyRoleRoute)
+app.post('/club/addclub', addClubRoute);
 
-app.get('/get/clubs', getClubRoute)
+app.post('/verifyrole', verifyRoleRoute);
 
-app.post('/update/club', updateClubRoute)
+app.get('/get/clubs', getClubRoute);
 
-app.post('/verify/personnel', updateUserVerifiedRoute)
+app.post('/update/club', updateClubRoute);
 
+app.post('/verify/personnel', updateUserVerifiedRoute);
+
+app.post('/schoolyear/add', addSchoolYearRoute);
 
 app.listen(3001, ()=>{
     console.log('listening on port 3001');
