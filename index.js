@@ -12,6 +12,7 @@ const getClubRoute = require('./routes/getClubRoute');
 const updateClubRoute = require('./routes/updateClubRoute');
 const updateUserVerifiedRoute = require('./routes/updateUserVerifiedRoute');
 const addSchoolYearRoute = require('./routes/addSchoolYearRoute');
+const getSchoolYearRoute = require('./routes/getSchoolYearRoute');
 
 require('dotenv').config();
 
@@ -49,6 +50,8 @@ app.post('/update/club', updateClubRoute);
 app.post('/verify/personnel', updateUserVerifiedRoute);
 
 app.post('/schoolyear/add', addSchoolYearRoute);
+
+app.get('/get/schoolyear', getSchoolYearRoute);
 
 app.listen(3001, ()=>{
     console.log('listening on port 3001');
